@@ -1,0 +1,7 @@
+Main paga background #1a202c,
+Section color :#2d3748,
+item background:#374151,
+dashboard background:#1f2937,
+button background:#718096
+
+

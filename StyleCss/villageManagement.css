@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #f9fafb;
+  background: #1a202c;
+  display: grid;
+  grid-auto-columns: 240px auto;
+  grid-auto-rows: auto;
+  grid-template-areas: "dashboard main";
+}
+.dashboard {
+  padding-right: 20px;
+}
+.sidebar {
+  height: 100vh;
+  grid-area: dashboard;
+  width: auto;
+  background: #1f2937;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.sidebar .sidebar-header h2,
+.sidebar .sidebar-header h3 {
+  color: #f9fafb;
+  font-size: 24px;
+}
+.sidebar .menu {
+  list-style: none;
+  padding: 0;
+}
+.sidebar .menu li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+.sidebar .menu li:hover,
+.sidebar .menu li.active {
+  color: #718096;
+}
+.main {
+  grid-area: main;
+  flex: 1;
+  padding: 20px;
+}
+.main .header {
+  display: flex;
+  justify-content: flex-end;
+}
+.main .header .add-btn {
+  padding: 10px 15px;
+  background: #718096;
+  border: none;
+  color: #f9fafb;
+  cursor: pointer;
+}
+.main .header .add-btn:hover {
+  background: #2d3748;
+}
+.main .village-list {
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #2d3748;
+}
+.main .village-list .search-sort {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.main .village-list .search-sort input {
+  padding: 10px;
+  flex: 1;
+  margin-right: 10px;
+  border: 1px solid #374151;
+  border-radius: 5px;
+}
+.main .village-list .search-sort select {
+  padding: 10px;
+  border: 1px solid #374151;
+  border-radius: 5px;
+}
+.main .village-list .villages {
+  list-style: none;
+  padding: 0;
+}
+.main .village-list .villages li {
+  display: flex;
+  justify-content: space-between;
+  background: #374151;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.main .village-list .villages li button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  background: #718096;
+  border: none;
+  color: #f9fafb;
+  cursor: pointer;
+}
+.main .village-list .villages li button:hover {
+  background: #718096;
+}
+.main .village-list .pagination {
+  display: flex;
+  justify-content: flex-end;
+}
+.main .village-list .pagination button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background: #718096;
+  border: none;
+  color: #f9fafb;
+}
+.main .village-list .pagination button:hover {
+  background: #2d3748;
+}
