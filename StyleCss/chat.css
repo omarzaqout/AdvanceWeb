@@ -1,0 +1,115 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+.container {
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  color: #f1f5f9;
+  margin-bottom: 20px;
+}
+.search {
+  display: flex;
+  margin-bottom: 20px;
+}
+.search input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+.adminList {
+  display: flex;
+  padding: 10px;
+  background-color: #1e293b;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.adminList .admin {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.adminList .admin .adminsTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.adminList .admin .adminImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0284c7;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.adminList .admin .adminImg:hover {
+  transform: scale(1.1);
+  border-color: #00b4d8;
+}
+.adminList .admin span {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #f1f5f9;
+}
+.chatSection {
+  display: none;
+  margin-top: 0;
+  /* إزالة أي هامش علوي */
+  padding: 20px;
+  background-color: #1e293b;
+  border-radius: 10px;
+}
+.chatSection.active {
+  display: block;
+}
+.chatSection .chatMessages {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  background-color: #0f172a;
+  padding: 10px;
+  border-radius: 5px;
+  color: #f1f5f9;
+}
+.chatSection .chatMessages p {
+  margin: 5px 0;
+}
+.chatSection .chatMessages p strong {
+  color: #0284c7;
+}
+.chatSection .chatInput {
+  display: flex;
+  flex-direction: column;
+}
+.chatSection .chatInput textarea {
+  resize: none;
+  width: 100%;
+  padding: 10px;
+  border: block;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+.chatSection .chatInput button {
+  padding: 10px;
+  background-color: #0284c7;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 50px;
+}
+.chatSection .chatInput button:hover {
+  background-color: #00b4d8;
+}
