@@ -1,0 +1,107 @@
+@bg-primary: #1e293b;
+@bg-secondary: #202938;
+@bg-input: #0f172a;
+@text-light: #ffffff;
+@text-muted: #94a3b8;
+@border-color: #334155;
+@btn-color: #3b82f6;
+@btn-hover: #2563eb;
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: @bg-primary;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  background-color: @bg-secondary;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+
+  h1 {
+    color: @text-light;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+
+    label {
+      color: @text-muted;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid @border-color;
+      border-radius: 5px;
+      background-color: @bg-input;
+      color: @text-light;
+
+      &:focus {
+        outline: none;
+        border-color: @btn-color;
+      }
+    }
+  }
+
+  .btn-login {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: @btn-color;
+    color: @text-light;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: @btn-hover;
+    }
+  }
+
+  .signup-link {
+    margin-top: 1rem;
+    color: @text-muted;
+
+    a {
+      color: @btn-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.password-container {
+  position: relative;
+
+  input {
+    width: 100%;
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    font-size: 18px;
+  }
+}
