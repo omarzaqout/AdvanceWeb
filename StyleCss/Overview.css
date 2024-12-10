@@ -7,7 +7,6 @@
     width: 100%;
     border-radius: 5px;
     border: 2px solid #c1c2c4; 
-    /*max-width: 95%; /* Add responsiveness laterr*/
     }
 
 .map {
@@ -15,10 +14,10 @@
     background-color: #343f4f;
     border-radius: 5px;
     height: 300px;
-    margin-right: 2%;
+    margin-right: 3%;
     padding: 15px;
-    justify-content: center;/* one of these should be removed */
-    align-items: center;/* one of these should be removed */
+    justify-content: center;
+    align-items: center;
 }
 
 .stats{
@@ -36,10 +35,6 @@
     background-color: #1f2937;
     margin-right: 1%;
     width: 100%;
-}
-
-.stats-right-card {
-    margin-right: 0px;
 }
 
 .stats-card-text {
@@ -60,91 +55,39 @@
     display: flex;
     justify-content: space-between;
     margin-right: 2%;
-    /*height: 800px;*/
-    /*aspect-ratio: 1 / 0.50;*/
     margin-top: 15px;
+    height: 500px; /* --------------------------------------------------------*/
 }
 
 .pie-container {
     background-color: #1f2937;
-    border-radius: 5px;
-    flex: 1; 
-    height: 100%; 
+    flex: 1;
     margin-right: 1%;
-    width: 100%;
-
+    border-radius: 5px;
+    height: 100%; 
+    width: 48%;/*-------------------------------------------------------------------------*/
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    position: relative;
 }
 
-.right-pie {
-    margin-right: 0px;
+.cchart {
+    margin-top: 15px;
+    background-color: #343f4f;
+    border-radius: 5px;
+    /*height: 300px;*/
+    margin-right: 3%;
+    padding: 15px;
+    justify-content: center;/* one of these should be removed */
+    align-items: center;/* one of these should be removed */
+    height: 700px; 
 }
 
-.pie-index {
+.cchart-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20px;
+    height: 100%;
+    margin-top: 10px;
+    position: relative;
 }
 
-.age-ref {
-    width: 7%;
-    height: 15px;
-    margin-right: 1%;
-    margin-left: 2%;
-    border: 2px solid #c1c2c4; 
-}
-
-.less-18 {
-    background-color: #a74c65;
-}
-
-.less-35 {
-    background-color: #2f71a3;
-}
-
-.less-50 {
-    background-color: #a58c4d;
-}
-
-.less-65 {
-    background-color: #684eaf;
-}
-
-.more-65 {
-    background-color: rgb(56, 0, 211);
-}
-
-.pie-left {
-    width: 80%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background-image: conic-gradient(
-        #a58c4d 0 72deg,
-        #3c8489 72deg 144deg,
-        #684eaf 144deg 216deg,
-        #a74c65 216deg 288deg,
-        #2f71a3 288deg 360deg
-    );
-    justify-self: center;
-    margin-top: 2%;
-    margin-bottom: 3%;
-    border: 1px solid #ffffff;
-}
-
-.pie-right {
-    width: 80%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background-image: conic-gradient(
-        #2f71a3 0 230deg,
-        #a74c65 230deg 360deg
-        
-    );
-    justify-self: center;
-    margin-top: 2%;
-    margin-bottom: 3%;
-    border: 1px solid #ffffff;
-}
