@@ -23,22 +23,25 @@
   background-color: #2d3748;
 }
 .main .village-list .search-sort {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 20px;
-  background-color: #374151;
 }
 .main .village-list .search-sort input {
   padding: 10px;
-  flex: 1;
+  width: 98%;
   margin-right: 10px;
   border: 1px solid #4d5765;
   border-radius: 5px;
+  background-color: #374151;
+}
+.main .village-list .search-sort input:focus {
+  border: 1px solid blue;
 }
 .main .village-list .search-sort select {
   padding: 10px;
   border: 1px solid #374151;
   border-radius: 5px;
+  background-color: #374151;
+  color: #cbd5e0;
 }
 .main .village-list .villages {
   list-style: none;
@@ -100,7 +103,7 @@
   margin-bottom: 20px;
 }
 .modal .modal-content label {
-  display: block;
+  display: inline-block;
   margin-top: 15px;
 }
 .modal .modal-content input,
@@ -120,6 +123,7 @@
   outline: none;
 }
 .modal .modal-content button {
+  width: -webkit-fill-available;
   background-color: #718096;
   color: #cbd5e0;
   border: none;

@@ -1,9 +1,9 @@
 
-<link rel="stylesheet" href="../StyleCss/villageManagement.css">
+<!-- <link rel="stylesheet" href="../StyleCss/villageManagement.css"> -->
 
 <main class="main">
     <header class="header">
-        <button class="add-btn">Add New Village</button>
+        <button class="add-btn" id="addVillageButton">Add New Village</button>
     </header>
     <section class="village-list">
         <div class="title-header">
@@ -11,17 +11,147 @@
         </div>
         <div class="search-sort">
           <input type="text" placeholder="Search villages...">
-          <select>
-            <option value="default">Sort by: Default</option>
-          </select>
+          
         </div>
+        <div class="search-sort">  
+          <label for="sort">Sort by:</label>
+        <select  id="sort">
+          <option value="default"> Default</option>
+          <option value="Alphabetical">Alphabetical</option>
+        </select>
+      </div>
         <ul class="villages">
           <li>
             <span>Jabalia - Gaza Strip</span>
-            <button class="view">View</button>
-            <button class="update">Update Village</button>
-            <button class="delete">Delete Village</button>
-            <button class="demographic">Update Demographic Data</button>
+            <div class="list-button">
+              <button class="view" id="view-btn">View</button>
+              <button class="update" id="update-btn">Update Village</button>
+              <button class="delete" id="delete-btn">Delete Village</button>
+              <button class="demographic" id="UpdateDemography-btn">Update Demographic Data</button>
+            </div>
+          </li>
+          <li>
+            <span>Jabalia - Gaza Strip</span>
+            <div class="list-button">
+              <button class="view" id="view-btn">View</button>
+              <button class="update" id="update-btn">Update Village</button>
+              <button class="delete" id="delete-btn">Delete Village</button>
+              <button class="demographic" id="UpdateDemography-btn">Update Demographic Data</button>
+            </div>
           </li>
         </ul> 
+        <!-- Add village -->
+        <div id="addVillageModal" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Add New Village</h2>
+            <form id="addVillageForm">
+              <label for="villageName">Village Name:</label>
+              <input type="text" id="villageName" name="villageName" required />
+        
+              <label for="regionDistrict">Region/District:</label>
+              <input type="text" id="regionDistrict" name="regionDistrict" required />
+        
+              <label for="landArea">Land Area (sq km):</label>
+              <input type="number" id="landArea" name="landArea" required />
+        
+              <label for="latitude">Latitude:</label>
+              <input type="number" id="latitude" name="latitude" step="any" required />
+        
+              <label for="longitude">Longitude:</label>
+              <input type="number" id="longitude" name="longitude" step="any" required />
+        
+              <label for="uploadImage">Upload Image:</label>
+              <input type="file" id="uploadImage" name="uploadImage" />
+        
+              <label for="categories">Categories/Tags:</label>
+              <input type="text" id="categories" name="categories" placeholder="e.g., rural, urban" />
+        
+              <button type="submit">Add Village</button>
+            </form>
+          </div>
+        </div>
+        <!-- View -->
+        <div id="viewVillage" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Village Details</h2>
+              <label for="villageName">Village Name:</label><label  id="villageName" name="villageName">Jabalia</label>
+              
+            <div>
+              <label for="regionDistrict">Region/District:</label>
+              <label id="regionDistrict" name="regionDistrict" >Gaza Strip</label>
+            </div>
+            <div>
+              <label for="landArea">Land Area (sq km):</label>
+              <label  id="landArea" name="landArea">10</label>
+            </div>
+            <div>
+              <label for="latitude">Latitude:</label>
+              <label  id="latitude" name="latitude" >31.9522</label>
+            </div>
+            <div>
+              <label for="longitude">Longitude:</label>
+              <label type="number" id="longitude" name="longitude">35.2034</label>
+            </div>
+            <div>
+              <label for="categories">Tags:</label>
+              <label type="text" id="categories" name="categories">undefined</label>
+            </div>
+              
+              <img src="" alt="Village Image" id="uploadImage" name="uploadImage" />
+          </div>
+        </div>
+
+        <!-- Update Village -->
+        <div id="UpdateVillage" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Update Village</h2>
+            <form id="addVillageForm">
+              <label for="villageName">Village Name:</label>
+              <input type="text" id="villageName" name="villageName" required />
+        
+              <label for="regionDistrict">Region/District:</label>
+              <input type="text" id="regionDistrict" name="regionDistrict" required />
+        
+              <label for="landArea">Land Area (sq km):</label>
+              <input type="number" id="landArea" name="landArea" required />
+        
+              <label for="latitude">Latitude:</label>
+              <input type="number" id="latitude" name="latitude" step="any" required />
+        
+              <label for="longitude">Longitude:</label>
+              <input type="number" id="longitude" name="longitude" step="any" required />
+        
+              <label for="uploadImage">Upload Image:</label>
+              <input type="file" id="uploadImage" name="uploadImage" />
+        
+              <button type="submit">Update Village</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Update Demography -->
+        <div id="UpdateDemography" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Add Demographic Data for {name}</h2>
+            <form id="addVillageForm">
+              <label for="Population-size">Population Size:</label>
+              <input type="text" id="Population-size" name="Population-size" required />
+        
+              <label for="Age-Distribution">Age Distribution:</label>
+              <input type="text" id="Age-Distribution" name="Age-Distribution" placeholder="e.g., 0-14: 30%, 15-64: 60%, 65+: 10%" required />
+        
+              <label for="Gender-Ratios">Gender Ratios:</label>
+              <input type="text" id="Gender-Ratios" name="Gender-Ratios" required placeholder="e.g., Male: 51%, Female: 49%" />
+        
+              <label for="Population-Growth-Rate">Population Growth Rate:</label>
+              <input type="text" id="Population-Growth-Rate" name="Population-Growth-Rate" required />
+        
+              <button type="submit">Add Demographic Data</button>
+            </form>
+          </div>
+        </div>
 </main>
