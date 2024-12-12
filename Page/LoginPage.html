@@ -1,24 +1,42 @@
-
-    <link rel="stylesheet" href="../StyleCss/login.css">
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../StyleCss/login.css" />
+  </head>
+  <body>
     <div class="login-container">
-        <h1>Login</h1>
-        <form id="loginForm" onsubmit="login(event)">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Enter your username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <div class="password-container">
-                    <input type="password" id="password" placeholder="Enter your password" required>
-                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
-                </div>
-            </div>
-            <button type="submit" class="btn-login">Login</button>
-        </form>
-        <p class="signup-link">Don't have an account? <a href="../Page/Signin.html">Sign up</a></p>
+      <h1>Login</h1>
+      <form id="loginForm" onsubmit="login(event)">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-container">
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+            <span class="toggle-password" onclick="togglePassword()">👁️</span>
+          </div>
+        </div>
+        <button type="submit" class="btn-login">Login</button>
+      </form>
+      <p class="signup-link">
+        Don't have an account? <a href="../Page/Signin.html">Sign up</a>
+      </p>
     </div>
     <script src="../Js/login.js"></script>
-</body>
+  </body>
 </html>
