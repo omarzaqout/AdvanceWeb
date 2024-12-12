@@ -1,0 +1,76 @@
+.dashboard {
+  display: flex;
+  background-color: #1a1a2e;
+  color: #fff;
+  height: 100vh;
+}
+.dashboard .sidebar {
+  width: 250px;
+  background-color: #162447;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.dashboard .sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.dashboard .sidebar ul li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+.dashboard .sidebar ul li.active {
+  color: #00f4ff;
+  font-weight: bold;
+}
+.dashboard .sidebar .admin-info {
+  display: flex;
+  align-items: center;
+}
+.dashboard .sidebar .admin-info .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.dashboard .sidebar .admin-info .logout {
+  color: red;
+  margin-left: auto;
+  text-decoration: none;
+}
+.dashboard .main {
+  flex: 1;
+  padding: 20px;
+}
+.dashboard .main .add-image-btn {
+  background-color: #00f4ff;
+  color: #1a1a2e;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.dashboard .main .add-image-btn:hover {
+  background-color: #00c3cc;
+}
+.dashboard .main .gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1px));
+  gap: 20px;
+}
+.dashboard .main .gallery .gallery-item {
+  background-color: #1f4068;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+}
+.dashboard .main .gallery .gallery-item img {
+  width: 100%;
+  height: auto;
+}
+.dashboard .main .gallery .gallery-item .description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ddd;
+}

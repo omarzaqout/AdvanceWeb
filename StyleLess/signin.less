@@ -1,8 +1,9 @@
-@bg-primary: #1e293b;
+@bg-primary: #1a2431;
 @bg-secondary: #202938;
-@bg-input: #0f172a;
-@text-light: #ffffff;
-@text-muted: #94a3b8;
+@bg-input: #ffffff;
+@text-light: #000000;
+@text-muted: #dfdfdf;
+@text-color: #d8d8d8;
 @border-color: #334155;
 @btn-color: #3b82f6;
 @btn-hover: #2563eb;
@@ -27,7 +28,7 @@ body {
   text-align: center;
 
   h1 {
-    color: @text-light;
+    color: @bg-input;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
@@ -45,8 +46,9 @@ body {
     input[type="text"],
     input[type="password"] {
       width: 100%;
+      height: 25px;
       padding: 0.5rem;
-      border: 1px solid @border-color;
+      border: 2px solid @border-color;
       border-radius: 5px;
       background-color: @bg-input;
       color: @text-light;
@@ -62,7 +64,7 @@ body {
     width: 100%;
     padding: 0.7rem;
     background-color: @btn-color;
-    color: @text-light;
+    color: @bg-input;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -75,7 +77,7 @@ body {
 
   .login-link {
     margin-top: 1rem;
-    color: @text-muted;
+    color: @text-color;
 
     a {
       color: @btn-color;
