@@ -1,3 +1,4 @@
+
 .main {
   grid-area: main;
   flex: 1;
@@ -25,6 +26,8 @@
 }
 .main .village-list .search-sort {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 .main .village-list .search-sort input {
   padding: 10px;
@@ -164,4 +167,5 @@
     width: 100%;
   }
 }
+
 

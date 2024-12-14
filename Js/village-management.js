@@ -6,8 +6,70 @@ export function activateVillageManagementEvents() {
   const villageListElement = document.getElementById("village-list");
   const uploadImageInput = document.getElementById("uploadImage");
   const UpdateDemography = document.getElementById("UpdateDemography");
+  const searchInput = document.querySelector("input[placeholder='Search villages...']");
+
+  let currentPage = 1;
+  const itemsPerPage = 5;
 
   loadVillages();
+
+   // إضافة حدث البحث
+   searchInput.addEventListener("input", function () {
+    const searchText = this.value.toLowerCase().trim();
+    filterVillages(searchText);
+  });
+
+  // وظيفة تصفية القرى
+  function filterVillages(searchText) {
+    const villages = villageListElement.querySelectorAll("li");
+    villages.forEach((village) => {
+      const villageText = village.querySelector("span").textContent.toLowerCase();
+      village.style.display = villageText.includes(searchText) ? "" : "none";
+    });
+    paginateVillages();
+  }
+  function paginateVillages() {
+    const villages = Array.from(villageListElement.children);
+    const totalItems = villages.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    villages.forEach((village, index) => {
+      village.style.display =
+        index >= (currentPage - 1) * itemsPerPage && index < currentPage * itemsPerPage
+          ? ""
+          : "none";
+    });
+
+    renderPaginationButtons(totalPages);
+  }
+
+  function renderPaginationButtons(totalPages) {
+    const paginationContainer = document.getElementById("pagination");
+    paginationContainer.innerHTML = "";
+
+    if (currentPage > 1) {
+      const prevButton = document.createElement("button");
+      prevButton.textContent = "Prev";
+      prevButton.addEventListener("click", () => {
+        currentPage--;
+        paginateVillages();
+      });
+      paginationContainer.appendChild(prevButton);
+    }
+
+    if (currentPage < totalPages) {
+      const nextButton = document.createElement("button");
+      nextButton.textContent = "Next";
+      nextButton.addEventListener("click", () => {
+        currentPage++;
+        paginateVillages();
+      });
+      paginationContainer.appendChild(nextButton);
+    }
+  }
+
+  // استدعاء التحديث عند تحميل القرى
+ 
 
   $("#addVillageButton").click(function () {
     if (addVillageModal) {
@@ -252,6 +314,7 @@ function updateDemographicsInDOM(listItem, demographics, village) {
   function loadVillages() {
     const villages = JSON.parse(localStorage.getItem("villages")) || [];
     villages.forEach(addVillageToDOM);
+    paginateVillages();
   }
 
   function getNextIndex() {

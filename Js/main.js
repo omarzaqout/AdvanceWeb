@@ -1,6 +1,6 @@
 $(document).ready(function () {
   const loadedScripts = {};
-  let currentPage = null; 
+  let currentPage = null;
 
   const menuItems = document.querySelectorAll(".menu li");
 
@@ -11,7 +11,6 @@ $(document).ready(function () {
     "Gallery.html": "../Js/gallery.js",
   };
 
-  
   function addCssFile(page) {
     var link = document.createElement("link");
     link.rel = "stylesheet";
@@ -20,49 +19,55 @@ $(document).ready(function () {
     link.type = 'text/css';
     document.head.appendChild(link);
   }
-  
+
+  function loadPage(page) {
+    if (page && page !== currentPage) {
+      currentPage = page;
+
+      $('#content').off().empty();
+
+      $.ajax({
+        url: `../Page/${page}`,
+        method: "GET",
+        success: function (response) {
+          $('#content').html(response).fadeIn();
+          
+          addCssFile(page);
+
+          const scriptPath = pageScripts[page];
+          if (scriptPath && !loadedScripts[scriptPath]) {
+            const scriptTag = document.createElement('script');
+            scriptTag.type = 'module';
+            scriptTag.src = scriptPath;
+            scriptTag.onload = () => {
+              console.log(`${page} script loaded successfully.`);
+              loadedScripts[scriptPath] = true;
+              activatePageEvents(page);
+            };
+            scriptTag.onerror = () => {
+              console.error("Error loading script:", scriptPath);
+            };
+
+            document.body.appendChild(scriptTag);
+          } else {
+            activatePageEvents(page);
+          }
+        },
+        error: function () {
+          $('#content').html('<p>حدث خطأ أثناء تحميل الصفحة.</p>').fadeIn();
+        },
+      });
+    }
+  }
+
+  // استدعاء الصفحة الافتراضية عند التحميل
+  const defaultPage = "Overview.html";
+  loadPage(defaultPage);
 
   menuItems.forEach((menuItem) => {
     menuItem.addEventListener("click", function () {
       const page = menuItem.getAttribute("data-page");
-
-      if (page && page !== currentPage) {
-        currentPage = page;
-
-        $('#content').off().empty();
-
-        $.ajax({
-          url: `../Page/${page}`,
-          method: "GET",
-          success: function (response) {
-            $('#content').html(response).fadeIn();
-            
-            addCssFile(page);
-
-            const scriptPath = pageScripts[page];
-            if (scriptPath && !loadedScripts[scriptPath]) {
-              const scriptTag = document.createElement('script');
-              scriptTag.type = 'module';
-              scriptTag.src = scriptPath;
-              scriptTag.onload = () => {
-                console.log(`${page} script loaded successfully.`);
-                loadedScripts[scriptPath] = true;
-                activatePageEvents(page);
-              };
-              scriptTag.onerror = () => {
-                console.error("Error loading script:", scriptPath);
-              };
-
-              document.body.appendChild(scriptTag);
-            } else {
-              activatePageEvents(page);
-            }
-          },
-          error: function () {
-            $('#content').html('<p>حدث خطأ أثناء تحميل الصفحة.</p>').fadeIn();
-          },
-        });
-      }
+      loadPage(page);
     });
   });
 });

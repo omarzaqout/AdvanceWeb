@@ -1,3 +1,4 @@
+export function activateOverviewEvents() {
 $(document).ready(function () {
 
   const map = L.map('map').setView([31.528315, 34.481299], 7); // Center and zoom level
@@ -130,3 +131,4 @@ $(document).ready(function () {
   });
 
 });
+}

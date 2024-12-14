@@ -10,14 +10,23 @@
           <input type="text" placeholder="Search villages...">
       </div>
       <div class="search-sort">  
+        <div>
           <label for="sort">Sort by:</label>
           <select  id="sort">
               <option value="default">Default</option>
               <option value="Alphabetical">Alphabetical</option>
           </select>
+        </div>
+        <div>
+            <button class="btn-p">Prev</button>
+            <button class="btn-p">Next</button>
+
+        </div>
       </div>
       <ul class="villages" id="village-list">
       </ul>
+      <div id="pagination"></div>
+
 
       <!-- Add village Modal -->
       <div id="addVillageModal" class="modal">

@@ -32,6 +32,7 @@ function filterAdmins() {
       admin.style.display = "flex";
     } else {
       admin.style.display = "none";
+      
     }
   });
 }
