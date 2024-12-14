@@ -20,6 +20,7 @@ $(document).ready(function () {
     link.type = 'text/css';
     document.head.appendChild(link);
   }
+  
 
   menuItems.forEach((menuItem) => {
     menuItem.addEventListener("click", function () {

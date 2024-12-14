@@ -19,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  justify-content: space-between;
 }
 .sidebar .sidebar-header h2,
 .sidebar .sidebar-header h3 {
