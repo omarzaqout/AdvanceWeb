@@ -28,6 +28,7 @@ h1 {
 }
 .adminList {
   display: flex;
+  flex-direction: column;
   padding: 10px;
   background-color: #1e293b;
   border-radius: 10px;
@@ -59,6 +60,7 @@ h1 {
   margin-top: 10px;
   font-size: 14px;
   color: #f1f5f9;
+
 }
 .chatSection {
   display: none;
@@ -112,4 +114,21 @@ h1 {
 }
 .chatSection .chatInput button:hover {
   background-color: #00b4d8;
+}
+
+.admins{
+  display: flex;
+  flex-direction: row;
+
+}
+.admin-name{
+  display: flex;
+  flex-direction: row;
+  
+}
+span:nth-child(2), span:nth-child(3){
+  margin-left: 25px;
+}
+.admins article:nth-child(2),.admins article:nth-child(3){
+  margin-left: 35px;
 }

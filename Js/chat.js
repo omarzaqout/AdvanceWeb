@@ -1,3 +1,5 @@
+export function activateChatEvents() {
+  console.log("sameer");
 // Object to store the Msg of every Admin
 let chat_Data = {
   adham: [],
@@ -91,4 +93,9 @@ function capitalize(name) {
 }
 
 // Load chat data when the page loads
+window.openChat = openChat;
+window.filterAdmins = filterAdmins;
+window.sendMessage =sendMessage ;
+
 window.onload = loadChatData;
+}
