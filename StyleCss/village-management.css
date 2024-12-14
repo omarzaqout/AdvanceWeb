@@ -19,7 +19,7 @@
 .main .header .add-btn:hover {
   background: #2d3748;
 }
-.main .village-list {
+.main .village-list .pagination button{
   border-radius: 20px;
   padding: 20px;
   background-color: #2d3748;

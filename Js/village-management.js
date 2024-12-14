@@ -7,68 +7,88 @@ export function activateVillageManagementEvents() {
   const uploadImageInput = document.getElementById("uploadImage");
   const UpdateDemography = document.getElementById("UpdateDemography");
   const searchInput = document.querySelector("input[placeholder='Search villages...']");
+  const prev=document.getElementById("prev");
+  const next=document.getElementById("next");
 
   let currentPage = 1;
   const itemsPerPage = 5;
+  let allVillages = [];
+
+  let filteredVillages = [];
+
 
   loadVillages();
 
-   // إضافة حدث البحث
    searchInput.addEventListener("input", function () {
     const searchText = this.value.toLowerCase().trim();
     filterVillages(searchText);
   });
 
-  // وظيفة تصفية القرى
   function filterVillages(searchText) {
-    const villages = villageListElement.querySelectorAll("li");
-    villages.forEach((village) => {
-      const villageText = village.querySelector("span").textContent.toLowerCase();
-      village.style.display = villageText.includes(searchText) ? "" : "none";
-    });
+    filteredVillages = allVillages.filter((village) =>
+      village.querySelector("span").textContent.toLowerCase().includes(searchText)
+    );
+    currentPage = 1; 
     paginateVillages();
   }
+
   function paginateVillages() {
-    const villages = Array.from(villageListElement.children);
-    const totalItems = villages.length;
+    const villagesToShow = filteredVillages.length > 0 ? filteredVillages : allVillages;
+    const totalItems = villagesToShow.length;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    villages.forEach((village, index) => {
-      village.style.display =
-        index >= (currentPage - 1) * itemsPerPage && index < currentPage * itemsPerPage
-          ? ""
-          : "none";
+  
+    allVillages.forEach((village) => (village.style.display = "none"));
+  
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+  
+    villagesToShow.slice(startIndex, endIndex).forEach((village) => {
+      village.style.display = "";
     });
-
+  
     renderPaginationButtons(totalPages);
   }
+  
 
   function renderPaginationButtons(totalPages) {
     const paginationContainer = document.getElementById("pagination");
-    paginationContainer.innerHTML = "";
-
+    paginationContainer.innerHTML = ""; 
+  
     if (currentPage > 1) {
-      const prevButton = document.createElement("button");
-      prevButton.textContent = "Prev";
-      prevButton.addEventListener("click", () => {
-        currentPage--;
-        paginateVillages();
-      });
-      paginationContainer.appendChild(prevButton);
+      prev.style.display = "inline-block"; 
+      prev.disabled = false; 
+      prev.removeEventListener("click", handlePrevClick);
+      prev.addEventListener("click", handlePrevClick);
+    } else {
+      prev.style.display = "inline-block"; 
+      prev.disabled = true; 
     }
-
+  
     if (currentPage < totalPages) {
-      const nextButton = document.createElement("button");
-      nextButton.textContent = "Next";
-      nextButton.addEventListener("click", () => {
-        currentPage++;
-        paginateVillages();
-      });
-      paginationContainer.appendChild(nextButton);
+      next.style.display = "inline-block"; 
+      next.disabled = false; 
+      next.removeEventListener("click", handleNextClick);
+      next.addEventListener("click", handleNextClick);
+    } else {
+      next.style.display = "inline-block"; 
+      next.disabled = true; 
     }
   }
-
-  // استدعاء التحديث عند تحميل القرى
+  
+  
+  function handlePrevClick() {
+    console.log("befored:", currentPage);
+    currentPage--;
+    console.log("afterd:", currentPage);
+    paginateVillages();
+  }
+  
+  function handleNextClick() {
+    console.log("beforei:", currentPage);
+    currentPage++;
+    console.log("afteri:", currentPage);
+    paginateVillages();
+  }
  
 
   $("#addVillageButton").click(function () {
@@ -312,8 +332,10 @@ function updateDemographicsInDOM(listItem, demographics, village) {
   }
 
   function loadVillages() {
-    const villages = JSON.parse(localStorage.getItem("villages")) || [];
-    villages.forEach(addVillageToDOM);
+    const villagesData = JSON.parse(localStorage.getItem("villages")) || [];
+    villagesData.forEach(addVillageToDOM);
+    allVillages = Array.from(villageListElement.children);
+    filteredVillages = allVillages; 
     paginateVillages();
   }
 
