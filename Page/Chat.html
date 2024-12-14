@@ -1,0 +1,41 @@
+
+    <link rel="stylesheet" href="../StyleCss/chat.css">
+    <main class="main">
+    <div class="container">
+        <header>
+            <h1>Chat with Admins</h1>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </header>
+        <section class="search">
+            <input type="text" id="search" placeholder="Search for an admin..." oninput="filterAdmins()">
+        </section>
+        <section class="adminList" id="adminList">
+            <p class="adminsTitle">Available Admins</p>
+          <article class="admin" data-name="adham" onclick="openChat('adham')">
+            <img  src="https://th.bing.com/th/id/OIP.USP1T_5fjD1VcqeFBkbNDwHaHa?rs=1&pid=ImgDetMain"   alt="Adham"   class="adminImg"/>
+            <span>Adham</span>
+          </article>
+          <article class="admin" data-name="omar" onclick="openChat('omar')">
+            <img  src="https://www.pngarts.com/files/5/User-Avatar-PNG-Transparent-Image.png" alt="Omar" class="adminImg"/>
+            <span>Omar</span>
+          </article>
+          <article class="admin" data-name="mohammed" onclick="openChat('mohammed')">
+            <img src="https://static.vecteezy.com/system/resources/previews/023/004/539/non_2x/a-man-with-black-glasses-avatar-art-free-vector.jpg" alt="Mohammed"  class="adminImg"/>
+            <span>Mohammed</span>
+          </article>
+        </section>
+        <section id="chatSection" class="chatSection">
+            <header>
+                <h2>Chat with: <span id="chat-admin-name"></span></h2>
+            </header>
+            <div class="chatMessages" id="chatMessages"></div>
+            <footer class="chatInput">
+                <textarea id="chatInput" placeholder="Type your message..."></textarea>
+                <button id="sendButton" onclick="sendMessage()">Send</button>
+            </footer>
+        </section>
+    </div>
+  </main>
+    <script src="../Js/chat.js"></script>
+    <script src="../Js/login.js"></script>
+

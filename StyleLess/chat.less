@@ -1,0 +1,125 @@
+@primary-color: #0284c7;
+@hover-color: #00b4d8;
+@bg-dark: #0f172a;
+@bg-light: #f1f5f9;
+@bg-admin: #1e293b;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: @bg-dark;
+  color: @bg-light;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: @bg-light;
+  margin-bottom: 20px;
+}
+
+.search {
+  display: flex;
+  margin-bottom: 20px;
+  input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: @bg-light;
+    color: @bg-admin;
+  }
+}
+
+.adminList {
+  display: flex;
+  padding: 10px;
+  background-color: @bg-admin;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  .admin {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    .adminsTitle {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .adminImg {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid @primary-color;
+      transition: transform 0.3s, border-color 0.3s;
+      &:hover {
+        transform: scale(1.1);
+        border-color: @hover-color;
+      }
+    }
+    span {
+      margin-top: 10px;
+      font-size: 14px;
+      color: @bg-light;
+    }
+  }
+}
+
+.chatSection {
+  display: none;
+  margin-top: 0; /* إزالة أي هامش علوي */
+  padding: 20px;
+  background-color: @bg-admin;
+  border-radius: 10px;
+  &.active {
+    display: block;
+  }
+  .chatMessages {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    background-color: @bg-dark;
+    padding: 10px;
+    border-radius: 5px;
+    color: @bg-light;
+    p {
+      margin: 5px 0;
+      strong {
+        color: @primary-color;
+      }
+    }
+  }
+  .chatInput {
+    display: flex;
+    flex-direction: column;
+    textarea {
+      resize: none;
+      width: 100%;
+      padding: 10px;
+      border: block;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      background-color: @bg-light;
+      color: @bg-admin;
+    }
+    button {
+      padding: 10px;
+      background-color: @primary-color;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 50px;
+      &:hover {
+        background-color: @hover-color;
+      }
+    }
+  }
+}
